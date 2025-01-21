@@ -24,7 +24,7 @@ export default function RootLayout({
         <body
           className={cn(font.className, "bg-white dark:bg-slate-900")}
         >
-          <ThemeProvider attribute={"class"} defaultTheme="dark" enableSystem={false} storageKey="college-theme">
+          <ThemeProvider attribute={"class"} defaultTheme="light" enableSystem={false} storageKey="college-theme">
             <ModalProvider />
             {children}
           </ThemeProvider>
