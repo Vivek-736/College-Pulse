@@ -84,9 +84,9 @@ enum ChannelSegregation {
 }
 
 model Channel {
-  id   String      @id @default(uuid())
-  name String
-  type ChannelType @default(TEXT)
+  id          String             @id @default(uuid())
+  name        String
+  type        ChannelType        @default(TEXT)
   segregation ChannelSegregation @default(OTHER)
 
   profileId String
