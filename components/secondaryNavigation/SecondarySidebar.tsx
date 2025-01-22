@@ -60,7 +60,7 @@ const SecondarySidebar = async ({ serverId }: SecondarySidebarProps) => {
     const role = community.members.find((member) => member.profileId === profile.id)?.role;
 
     return (
-        <div className='flex flex-col h-full text-primary w-full bg-[#7871f7] dark:bg-[#2a1b5a]'>
+        <div className='flex flex-col h-full text-primary w-full bg-[#837df2] dark:bg-[#2a1b5a]'>
             <SecHeader
                 community={community}
                 role={role}
