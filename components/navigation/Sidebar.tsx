@@ -27,7 +27,7 @@ const Sidebar = async () => {
     });
 
     return (
-        <div className='space-y-4 flex flex-col items-center h-full text-primary w-full bg-[#8c85ff] dark:bg-[#1f1346]'>
+        <div className='space-y-4 flex flex-col items-center h-full text-primary w-full bg-[#a29ef2] dark:bg-[#1f1346]'>
             <NavigationAction />
             <Separator className='h-[2px] bg-zinc-300 dark:bg-zinc-700 rounded-md w-10 mx-auto' />
             <ScrollArea className='flex-1 w-full'>

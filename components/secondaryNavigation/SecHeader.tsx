@@ -5,6 +5,7 @@ import React from 'react'
 import { DropdownMenu, DropdownMenuItem, DropdownMenuTrigger } from '../ui/dropdown-menu';
 import { ChevronDown, LogOut, PlusCircle, Settings, Trash, UserPlus, Users } from 'lucide-react';
 import { DropdownMenuContent, DropdownMenuSeparator } from '@radix-ui/react-dropdown-menu';
+import { useModal } from '@/hooks/use-modal-store';
 
 interface SecHeaderProps {
     community: ServerWithMembersWithProfiles;
@@ -15,6 +16,7 @@ const SecHeader: React.FC<SecHeaderProps> = ({
     community,
     role
 }) => {
+    const { onOpen } = useModal();
     const isAdmin = role === MemeberRole.ADMIN;
     const isCoordinator = isAdmin || role === MemeberRole.COORDINATOR;
     return (
@@ -27,7 +29,9 @@ const SecHeader: React.FC<SecHeaderProps> = ({
             </DropdownMenuTrigger>
             <DropdownMenuContent className='w-56 text-xs bg-white dark:bg-black font-medium text-black dark:text-neutral-400 space-y-4'>
                 {isCoordinator && (
-                    <DropdownMenuItem className='text-indigo-600 dark:hover:text-white dark:text-indigo-400 px-3 py-2 text-sm cursor-pointer'>
+                    <DropdownMenuItem
+                        onClick={() => onOpen('invite', { community })}
+                        className='text-indigo-600 dark:hover:text-white dark:text-indigo-400 px-3 py-2 text-sm cursor-pointer'>
                         Invite People
                         <UserPlus className="h-4 w-4 ml-auto" />
                     </DropdownMenuItem>

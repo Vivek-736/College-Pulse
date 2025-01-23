@@ -2,6 +2,7 @@
 
 import { CreateCommunityModal } from "@/components/models/create-community-modal";
 import { useEffect, useState } from "react";
+import { InviteModal } from "../models/invite-modal";
 
 export const ModalProvider = () => {
     const [isMounted, setIsMounted] = useState(false);
@@ -14,5 +15,11 @@ export const ModalProvider = () => {
         return null;
     }
 
-    return <CreateCommunityModal />
+    return (
+        <>
+            <CreateCommunityModal />
+            <InviteModal />
+        </>
+    )
+
 };
