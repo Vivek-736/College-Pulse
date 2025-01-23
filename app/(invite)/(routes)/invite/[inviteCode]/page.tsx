@@ -57,11 +57,7 @@ const InviteCodePage: React.FC<InviteCodePageProps> = async ({
         return redirect(`/communities/${community.id}`);
     }
 
-    return (
-        <div>
-
-        </div>
-    )
+    return null
 }
 
 export default InviteCodePage
