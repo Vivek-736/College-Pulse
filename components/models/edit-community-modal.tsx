@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react';
 import axios from 'axios';
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { useForm } from 'react-hook-form';
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -69,11 +69,8 @@ export const EditCommunityModal = () => {
             <DialogContent className='bg-white text-black p-0 overflow-hidden'>
                 <DialogHeader className='pt-8 px-6'>
                     <DialogTitle className='text-2xl text-center font-bold text-blue-600'>
-                        Create another Community
+                        Edit your Community
                     </DialogTitle>
-                    <DialogDescription className='text-center text-zinc-500'>
-                        Give your Community a tinge by adding name and image
-                    </DialogDescription>
                 </DialogHeader>
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
