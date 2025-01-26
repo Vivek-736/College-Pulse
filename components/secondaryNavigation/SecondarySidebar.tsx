@@ -53,7 +53,7 @@ const SecondarySidebar = async ({ serverId }: SecondarySidebarProps) => {
 
     const members = community?.members.filter((member) => member.profileId !== profile.id)
 
-    if(!community) {
+    if (!community) {
         return redirect("/");
     }
 

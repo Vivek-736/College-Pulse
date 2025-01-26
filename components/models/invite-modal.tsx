@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { useRouter } from 'next/navigation';
 import { useModal } from '@/hooks/use-modal-store';
 import { Label } from '../ui/label';
 import { Input } from '../ui/input';
@@ -12,7 +11,6 @@ import { useOrigin } from '@/hooks/use-origin';
 import axios from 'axios';
 
 export const InviteModal = () => {
-    const router = useRouter();
     const { isOpen, onClose, type, data, onOpen } = useModal();
     const origin = useOrigin();
 
