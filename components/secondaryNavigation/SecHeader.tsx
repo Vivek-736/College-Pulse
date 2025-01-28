@@ -64,7 +64,8 @@ const SecHeader: React.FC<SecHeaderProps> = ({
                     </DropdownMenuItem>
                 )}
                 {!isAdmin && (
-                    <DropdownMenuItem className='text-rose-500 px-3 py-2 text-sm cursor-pointer pb-1'>
+                    <DropdownMenuItem onClick={() => onOpen("leaveCommunity", { community })}
+                    className='text-rose-500 px-3 py-2 text-sm cursor-pointer pb-1'>
                         Leave Community
                         <LogOut className='h-4 w-4 ml-auto' />
                     </DropdownMenuItem>
