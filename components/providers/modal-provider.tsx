@@ -7,6 +7,7 @@ import { EditCommunityModal } from "../models/edit-community-modal";
 import { MembersModal } from "../models/members-modal";
 import { CreateChannelModal } from "../models/create-channel-modal";
 import { LeaveCommunityModal } from "../models/leave-community-modal";
+import { DeleteCommunityModal } from "../models/delete-community-modal";
 
 export const ModalProvider = () => {
     const [isMounted, setIsMounted] = useState(false);
@@ -27,6 +28,7 @@ export const ModalProvider = () => {
             <MembersModal />
             <CreateChannelModal />
             <LeaveCommunityModal />
+            <DeleteCommunityModal />
         </>
     )
 
