@@ -27,7 +27,7 @@ const SecHeader: React.FC<SecHeaderProps> = ({
                     <ChevronDown className='h-5 w-5 ml-auto' />
                 </button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className='w-56 text-xs bg-white dark:bg-black font-medium text-black dark:text-neutral-400 space-y-4'>
+            <DropdownMenuContent className='w-56 text-xs bg-white dark:bg-black font-medium text-black dark:text-neutral-400 space-y-4 z-50'>
                 {isCoordinator && (
                     <DropdownMenuItem
                         onClick={() => onOpen('invite', { community })}
