@@ -8,6 +8,10 @@ import { ScrollArea } from '../ui/scroll-area';
 import { Hash, Mic, Video, ShieldCheck, ShieldAlert } from 'lucide-react';
 import { MemeberRole } from '@prisma/client';
 import SecSidebarSearch from './SecSidebarSearch';
+import { Separator } from '../ui/separator';
+import ChannelSection from './ChannelSection';
+import CommunityChannel from './CommunityChannel';
+import CommunityMember from './CommunityMember';
 
 interface SecondarySidebarProps {
     serverId: string;
@@ -76,7 +80,7 @@ const SecondarySidebar = async ({ serverId }: SecondarySidebarProps) => {
     const role = community.members.find((member) => member.profileId === profile.id)?.role;
 
     return (
-        <div className='flex flex-col h-full text-primary w-full bg-[#837df2] dark:bg-[#2a1b5a]'>
+        <div className='flex flex-col h-full text-primary w-full bg-[#ccc8ff] dark:bg-[#2a1b5a]'>
             <SecHeader
                 community={community}
                 role={role}
@@ -84,11 +88,11 @@ const SecondarySidebar = async ({ serverId }: SecondarySidebarProps) => {
             <ScrollArea>
                 <div className='flex-1 px-3'>
                     <div className='mt-2'>
-                    <SecSidebarSearch
+                        <SecSidebarSearch
                             data={[
                                 {
                                     label: "Text Channels",
-                                    type: "Channel",
+                                    type: "channel",
                                     data: textChannels?.map((channel) => ({
                                         id: channel.id,
                                         name: channel.name,
@@ -97,7 +101,7 @@ const SecondarySidebar = async ({ serverId }: SecondarySidebarProps) => {
                                 },
                                 {
                                     label: "Voice Channels",
-                                    type: "Channel",
+                                    type: "channel",
                                     data: audioChannels?.map((channel) => ({
                                         id: channel.id,
                                         name: channel.name,
@@ -106,7 +110,7 @@ const SecondarySidebar = async ({ serverId }: SecondarySidebarProps) => {
                                 },
                                 {
                                     label: "Video Channels",
-                                    type: "Channel",
+                                    type: "channel",
                                     data: videoChannels?.map((channel) => ({
                                         id: channel.id,
                                         name: channel.name,
@@ -125,6 +129,79 @@ const SecondarySidebar = async ({ serverId }: SecondarySidebarProps) => {
                             ]}
                         />
                     </div>
+                    <Separator className='bg-zinc-200 dark:bg-zinc-700 rounded-md my-2' />
+                    {!!otherChannel?.length && (
+                        <div className='mb-2'>
+                            <ChannelSection sectionType='channels' channelType={ChannelType.TEXT || ChannelType.AUDIO || ChannelType.VIDEO} channelSegregation={ChannelSegregation.OTHER} role={role} label='OTHER Channels' />
+                            <div className='space-y-[2px]'>
+                                {otherChannel.map((channel) => (
+                                    <CommunityChannel
+                                        key={channel.id}
+                                        channel={channel}
+                                        role={role}
+                                        community={community}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                    )}
+                    {!!clubChannel?.length && (
+                        <div className='mb-2'>
+                            <ChannelSection sectionType='channels' channelType={ChannelType.TEXT || ChannelType.AUDIO || ChannelType.VIDEO} channelSegregation={ChannelSegregation.CLUB} role={role} label='Club Channels' />
+                            <div className='space-y-[2px]'>
+                                {clubChannel.map((channel) => (
+                                    <CommunityChannel
+                                        key={channel.id}
+                                        channel={channel}
+                                        role={role}
+                                        community={community}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                    )}
+                    {!!classChannel?.length && (
+                        <div className='mb-2'>
+                            <ChannelSection sectionType='channels' channelType={ChannelType.TEXT || ChannelType.AUDIO || ChannelType.VIDEO} channelSegregation={ChannelSegregation.CLASS} role={role} label='Class Channels' />
+                            <div className='space-y-[2px]'>
+                                {classChannel.map((channel) => (
+                                    <CommunityChannel
+                                        key={channel.id}
+                                        channel={channel}
+                                        role={role}
+                                        community={community}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                    )}
+                    {!!courseChannel?.length && (
+                        <div className='mb-2'>
+                            <ChannelSection sectionType='channels' channelType={ChannelType.TEXT || ChannelType.AUDIO || ChannelType.VIDEO} channelSegregation={ChannelSegregation.COURSE} role={role} label='Course Channels' />
+                            <div className='space-y-[2px]'>
+                                {courseChannel.map((channel) => (
+                                    <CommunityChannel
+                                        key={channel.id}
+                                        channel={channel}
+                                        role={role}
+                                        community={community}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                    )}
+                    {!!members?.length && (
+                        <div className='mb-2'>
+                            <ChannelSection sectionType='members' role={role} label='Members' community={community} />
+                            {members.map((member) => (
+                                <CommunityMember
+                                    key={member.id}
+                                    member={member}
+                                    community={community}
+                                />
+                            ))}
+                        </div>
+                    )}
                 </div>
             </ScrollArea>
         </div>

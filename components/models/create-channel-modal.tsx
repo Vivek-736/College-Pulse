@@ -1,7 +1,7 @@
 "use client";
 
 import qs from "query-string";
-import React from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { useForm } from 'react-hook-form';
@@ -30,19 +30,27 @@ const formSchema = z.object({
 
 export const CreateChannelModal = () => {
     const router = useRouter();
-    const { isOpen, onClose, type } = useModal();
+    const { isOpen, onClose, type, data } = useModal();
     const params = useParams();
 
     const isModalOpen = isOpen && type === "createChannel"
+    const { channelSegregation } = data;
 
     const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
             name: "",
             type: ChannelType.TEXT,
-            segregation: ChannelSegregation.OTHER
+            segregation: ChannelSegregation.CLASS || ChannelSegregation.CLUB || ChannelSegregation.COURSE || ChannelSegregation.OTHER,
         }
     });
+
+    useEffect(() => {
+        if(channelSegregation) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            form.setValue("segregation", channelSegregation as any);
+        }
+    }, [channelSegregation, form]);
 
     const isLoading = form.formState.isSubmitting;
 
@@ -55,7 +63,7 @@ export const CreateChannelModal = () => {
                 }
             })
             await axios.post(url, values);
-            
+
             form.reset();
             router.refresh();
             onClose();
