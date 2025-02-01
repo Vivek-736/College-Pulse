@@ -22,7 +22,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <body
-          className={cn(font.className, "bg-white dark:bg-slate-900")}
+          className={cn(font.className, "bg-white dark:bg-[#aca8b9]")}
         >
           <ThemeProvider attribute={"class"} defaultTheme="light" enableSystem={false} storageKey="college-theme">
             <ModalProvider />

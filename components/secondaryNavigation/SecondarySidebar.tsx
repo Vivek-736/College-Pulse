@@ -132,7 +132,7 @@ const SecondarySidebar = async ({ serverId }: SecondarySidebarProps) => {
                     <Separator className='bg-zinc-200 dark:bg-zinc-700 rounded-md my-2' />
                     {!!otherChannel?.length && (
                         <div className='mb-2'>
-                            <ChannelSection sectionType='channels' channelType={ChannelType.TEXT || ChannelType.AUDIO || ChannelType.VIDEO} channelSegregation={ChannelSegregation.OTHER} role={role} label='OTHER Channels' />
+                            <ChannelSection sectionType='channels' channelType={ChannelType.TEXT || ChannelType.AUDIO || ChannelType.VIDEO} channelSegregation={ChannelSegregation.OTHER} role={role} label='Distinct Channels' />
                             <div className='space-y-[2px]'>
                                 {otherChannel.map((channel) => (
                                     <CommunityChannel
