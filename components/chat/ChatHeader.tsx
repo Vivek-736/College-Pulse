@@ -1,6 +1,8 @@
 import React from 'react'
 import { MobileToggle } from "@/components/mobile-toggle";
 import { Group } from 'lucide-react';
+import UserAvatar from '../user-avatar';
+import { SocketIndicator } from '../socket-indicator';
 
 interface ChatHeaderProps {
     serverId: string;
@@ -16,9 +18,15 @@ const ChatHeader = ({ serverId, name, type, imageUrl }: ChatHeaderProps) => {
             {type === "channel" && (
                 <Group className='w-5 h-5 text-green-700 dark:text-green-400 mr-2' />
             )}
+            {type === "message" && (
+                <UserAvatar src={imageUrl} className='h-8 w-8 mr-2' />
+            )}
             <p className='font-semibold text-lg text-black dark:text-white'>
-                {name} <span className='text-lg text-neutral-600 dark:text-neutral-200'>Channel</span>
+                {name}
             </p>
+            <div className='ml-auto flex items-center'>
+                <SocketIndicator />
+            </div>
         </div>
     )
 }
