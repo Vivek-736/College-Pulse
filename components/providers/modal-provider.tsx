@@ -10,6 +10,7 @@ import { LeaveCommunityModal } from "../models/leave-community-modal";
 import { DeleteCommunityModal } from "../models/delete-community-modal";
 import { DeleteChannelModal } from "../models/delete-channel-modal";
 import { EditChannelModal } from "../models/edit-channel-modal";
+import MessageFileModal from "../models/message-file-modal";
 
 export const ModalProvider = () => {
     const [isMounted, setIsMounted] = useState(false);
@@ -33,6 +34,7 @@ export const ModalProvider = () => {
             <DeleteCommunityModal />
             <DeleteChannelModal />
             <EditChannelModal />
+            <MessageFileModal />
         </>
     )
 

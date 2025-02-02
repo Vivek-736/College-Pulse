@@ -1,15 +1,15 @@
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    remotePatterns: [
+    domains: ['utfs.io'],
+  },
+  async rewrites() {
+    return [
       {
-        protocol: 'https',
-          hostname: 'utfs.io',
-        },
-        {
-          protocol: 'https',
-          hostname: 'jbljn51yb9.ufs.sh',
+        source: '/files/:path*',
+        destination: 'https://utfs.io/f/:path*',
       },
-    ],
+    ];
   },
 };
 
