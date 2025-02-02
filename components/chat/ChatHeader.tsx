@@ -7,7 +7,7 @@ import { SocketIndicator } from '../socket-indicator';
 interface ChatHeaderProps {
     serverId: string;
     name: string;
-    type: "channel" | "message";
+    type: "channel" | "conversation";
     imageUrl?: string;
 }
 
@@ -18,7 +18,7 @@ const ChatHeader = ({ serverId, name, type, imageUrl }: ChatHeaderProps) => {
             {type === "channel" && (
                 <Group className='w-5 h-5 text-green-700 dark:text-green-400 mr-2' />
             )}
-            {type === "message" && (
+            {type === "conversation" && (
                 <UserAvatar src={imageUrl} className='h-8 w-8 mr-2' />
             )}
             <p className='font-semibold text-lg text-black dark:text-white'>
