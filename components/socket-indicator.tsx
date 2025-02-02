@@ -9,7 +9,7 @@ export const SocketIndicator = () => {
     if(!isConnected) {
         return (
             <Badge variant="outline" className="bg-yellow-600 text-white md:p-2">
-                Loading.....
+                Syncing....
             </Badge>
         )
     }
