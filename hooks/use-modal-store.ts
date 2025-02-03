@@ -1,7 +1,7 @@
 import { Channel, ChannelSegregation, Server } from '@prisma/client';
 import { create } from 'zustand';
 
-export type ModalType = "createCommunity" | "invite" | "editCommunity" | "members" | "createChannel" | "leaveCommunity" | "deleteCommunity" | "deleteChannel" | "editChannel" | "messageFile";
+export type ModalType = "createCommunity" | "invite" | "editCommunity" | "members" | "createChannel" | "leaveCommunity" | "deleteCommunity" | "deleteChannel" | "editChannel" | "messageFile" | "deleteMessage";
 
 interface ModalData {
     community?: Server;
