@@ -17,22 +17,26 @@ export const MediaRoom = ({ chatId, video, audio }: MediaRoomProps) => {
     const [token, setToken] = useState("");
 
     useEffect(() => {
-        if (!user?.firstName || !user?.lastName) return;
+        if (!user?.id) return;
 
-        const name = `${user.firstName} ${user.lastName}`;
+        // Use username or email as fallback
+        const name = user.username || user.fullName || user.primaryEmailAddress?.emailAddress;
+        if (!name) return;
 
         (async () => {
             try {
-                const resp = await fetch(`/api/livekit?room=${chatId}&username=${name}`);
+                const resp = await fetch(
+                    `/api/livekit?room=${chatId}&username=${encodeURIComponent(name)}`
+                );
                 const data = await resp.json();
                 setToken(data.token);
             } catch (error) {
-                console.log(error);
+                console.error("Error fetching LiveKit token:", error);
             }
-        })()
-    }, [user?.firstName, user?.lastName, chatId]);
+        })();
+    }, [user?.id, chatId, user?.fullName, user?.primaryEmailAddress, user?.username]); // More stable dependency
 
-    if (token === "") {
+    if (!token) {
         return (
             <div className="flex flex-col flex-1 justify-center items-center">
                 <Loader2 className="h-7 w-7 text-zinc-500 animate-spin my-4" />
@@ -46,11 +50,13 @@ export const MediaRoom = ({ chatId, video, audio }: MediaRoomProps) => {
     return (
         <LiveKitRoom
             data-lk-theme="default"
-            serverUrl={process.env.LIVEKIT_URL}
+            serverUrl={process.env.NEXT_PUBLIC_LIVEKIT_URL}
             token={token}
             connect={true}
             video={video}
             audio={audio}
+            onConnected={() => console.log("Connected to LiveKit")}
+            onDisconnected={() => console.log("Disconnected from LiveKit")}
         >
             <VideoConference />
         </LiveKitRoom>
