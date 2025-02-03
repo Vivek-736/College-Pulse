@@ -7,7 +7,7 @@ import * as z from "zod";
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Form, FormControl, FormField, FormItem } from '../ui/form';
 import { Input } from '../ui/input';
-import { Plus } from 'lucide-react';
+import { Plus, Send } from 'lucide-react';
 import { useModal } from '@/hooks/use-modal-store';
 import EmojiPicker from '../emoji-picker';
 import { useRouter } from 'next/navigation';
@@ -73,6 +73,9 @@ const ChatInput = ({ apiUrl, query, name, type }: ChatInputProps) => {
                                     <div className='absolute top-7 right-8'>
                                         <EmojiPicker onChange={(emoji: string) => field.onChange(`${field.value} ${emoji}`)} />
                                     </div>
+                                    <button type="submit" className='md:hidden absolute top-7 right-16 h-[24px] w-[24px] bg-indigo-500 dark:bg-indigo-400 hover:bg-indigo-600 dark:hover:bg-indigo-300 transition rounded-full p-1 flex items-center justify-center'>
+                                        <Send className='text-white dark:text-[#313338]' />
+                                    </button>
                                 </div>
                             </FormControl>
                         </FormItem>
@@ -83,4 +86,4 @@ const ChatInput = ({ apiUrl, query, name, type }: ChatInputProps) => {
     )
 }
 
-export default ChatInput
+export default ChatInput;

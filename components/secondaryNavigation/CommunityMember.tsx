@@ -14,8 +14,8 @@ interface CommunityMemberProps {
 
 const roleIconMap = {
     [MemeberRole.STUDENT]: null,
-    [MemeberRole.COORDINATOR]: <ShieldCheck className='h-4 w-4 text-green-400 ml-2' />,
-    [MemeberRole.ADMIN]: <ShieldAlert className='h-4 w-4 text-rose-400 ml-2' />
+    [MemeberRole.COORDINATOR]: <ShieldCheck className='h-4 w-4 text-emerald-800 dark:text-green-400 ml-2' />,
+    [MemeberRole.ADMIN]: <ShieldAlert className='h-4 w-4 text-red-800 dark:text-rose-400 ml-2' />
 }
 
 const CommunityMember = ({ member, community }: CommunityMemberProps) => {

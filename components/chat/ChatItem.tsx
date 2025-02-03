@@ -15,6 +15,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { useModal } from "@/hooks/use-modal-store";
+import { useRouter, useParams } from "next/navigation";
 
 interface ChatItemProps {
     id: string;
@@ -47,6 +48,16 @@ const ChatItem = ({
     const [isEditing, setIsEditing] = useState(false);
 
     const { onOpen } = useModal();
+
+    const params = useParams();
+    const router = useRouter();
+
+    const onMemberClick = () => {
+        if(member.id === currentMember.id) {
+            return;
+        }
+        router.push(`/communities/${params?.serverId}/conversations/${member.id}`)
+    }
 
     useEffect(() => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -109,13 +120,13 @@ const ChatItem = ({
                 'group flex gap-x-3 items-start w-full',
                 isOwner && 'flex-row-reverse'
             )}>
-                <div className='cursor-pointer hover:drop-shadow-md transition'>
+                <div onClick={onMemberClick} className='cursor-pointer hover:drop-shadow-md transition'>
                     <UserAvatar src={member.profile.imageUrl} />
                 </div>
                 <div className='flex flex-col w-fit max-w-[70%]'>
                     <div className='flex items-center gap-x-2'>
                         <div className='flex items-center'>
-                            <p className='font-semibold text-sm hover:underline cursor-pointer'>
+                            <p onClick={onMemberClick} className='font-semibold text-sm hover:underline cursor-pointer'>
                                 {member.profile.name}
                             </p>
                             <ActionTooltip label={member.role}>
