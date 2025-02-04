@@ -11,6 +11,7 @@ import { Plus, Send } from 'lucide-react';
 import { useModal } from '@/hooks/use-modal-store';
 import EmojiPicker from '../emoji-picker';
 import { useRouter } from 'next/navigation';
+import { ChatAudioButton } from './ChatAudioButton';
 
 interface ChatInputProps {
     apiUrl: string;
@@ -71,6 +72,9 @@ const ChatInput = ({ apiUrl, query, name, type }: ChatInputProps) => {
                                         {...field}
                                     />
                                     <div className='absolute top-7 right-8'>
+                                        {type === "conversation" && (
+                                            <ChatAudioButton />
+                                        )}
                                         <EmojiPicker onChange={(emoji: string) => field.onChange(`${field.value} ${emoji}`)} />
                                     </div>
                                     <button type="submit" className='md:hidden absolute top-7 right-16 h-[24px] w-[24px] bg-indigo-500 dark:bg-indigo-400 hover:bg-indigo-600 dark:hover:bg-indigo-300 transition rounded-full p-1 flex items-center justify-center'>

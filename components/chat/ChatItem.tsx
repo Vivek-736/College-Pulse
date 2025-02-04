@@ -35,7 +35,7 @@ interface ChatItemProps {
 const roleIconMap = {
     'STUDENT': null,
     'COORDINATOR': <ShieldCheck className='h-4 w-4 ml-2 text-green-400' />,
-    'ADMIN': <ShieldAlert className='h-4 w-4 ml-2 text-rose-400' />
+    'ADMIN': <ShieldAlert className='h-4 w-4 ml-2 text-indigo-400' />
 }
 
 const formSchema = z.object({

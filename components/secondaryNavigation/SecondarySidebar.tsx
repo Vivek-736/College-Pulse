@@ -26,7 +26,7 @@ const iconMap = {
 const roleIconMap = {
     [MemeberRole.STUDENT]: null,
     [MemeberRole.COORDINATOR]: <ShieldCheck className='text-green-500 h-4 w-4 mr-2' />,
-    [MemeberRole.ADMIN]: <ShieldAlert className='text-rose-500 h-4 w-4 mr-2' />
+    [MemeberRole.ADMIN]: <ShieldAlert className='text-indigo-400 h-4 w-4 mr-2' />
 }
 
 const SecondarySidebar = async ({ serverId }: SecondarySidebarProps) => {

@@ -17,7 +17,7 @@ import { useRouter } from 'next/navigation';
 const roleIconMap = {
     "STUDENT": <School className="text-purple-500 ml-2 w-4 h-4" />,
     "COORDINATOR": <ShieldCheck className="text-green-500 ml-2 w-4 h-4" />,
-    "ADMIN": <ShieldAlert className="text-rose-500 w-4 h-4 ml-2" />
+    "ADMIN": <ShieldAlert className="text-indigo-400 w-4 h-4 ml-2" />
 }
 
 export const MembersModal = () => {
