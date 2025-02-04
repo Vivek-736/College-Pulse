@@ -85,6 +85,7 @@ const MemberIdPage = async ({ params, searchParams }: MemberIdPageProps) => {
                         type='conversation'
                         apiUrl='/api/socket/direct-messages'
                         query={{
+                            serverId: params.serverId,
                             conversationId: conversation.id
                         }}
                     />
