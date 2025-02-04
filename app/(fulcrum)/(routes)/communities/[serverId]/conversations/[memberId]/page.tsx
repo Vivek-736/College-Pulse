@@ -73,7 +73,7 @@ const MemberIdPage = async ({ params, searchParams }: MemberIdPageProps) => {
                     audio={true}
                 />
             )}
-            {!searchParams.video && (
+            {(!searchParams.video && !searchParams.audio) && (
                 <>
                     <ChatMessages
                         member={currentMember}
