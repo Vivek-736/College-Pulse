@@ -69,7 +69,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponseS
             data: {
                 content,
                 fileUrl,
-                conversationId: conversation.id,
+                conversationId: conversationId as string,
                 memberId: member.id,
             },
             include: {
