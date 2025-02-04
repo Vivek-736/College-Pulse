@@ -19,7 +19,6 @@ export const MediaRoom = ({ chatId, video, audio }: MediaRoomProps) => {
     useEffect(() => {
         if (!user?.id) return;
 
-        // Use username or email as fallback
         const name = user.username || user.fullName || user.primaryEmailAddress?.emailAddress;
         if (!name) return;
 
@@ -34,7 +33,7 @@ export const MediaRoom = ({ chatId, video, audio }: MediaRoomProps) => {
                 console.error("Error fetching LiveKit token:", error);
             }
         })();
-    }, [user?.id, chatId, user?.fullName, user?.primaryEmailAddress, user?.username]); // More stable dependency
+    }, [user?.id, chatId, user?.fullName, user?.primaryEmailAddress, user?.username]);
 
     if (!token) {
         return (

@@ -2,7 +2,7 @@
 
 import qs from "query-string";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { ServerCrash, Mic } from "lucide-react";
+import { Mic, MicOff } from "lucide-react";
 import ActionTooltip from "../action-tooltip";
 
 export const ChatAudioButton = () => {
@@ -10,20 +10,20 @@ export const ChatAudioButton = () => {
     const router = useRouter();
     const searchParams = useSearchParams();
 
-    const isVideo = searchParams?.get("audio");
+    const isAudio = searchParams?.get("audio");
 
     const onClick = () => {
         const url = qs.stringifyUrl({
             url: pathname || "",
             query: {
-                video: isVideo ? undefined : true
+                audio: isAudio ? undefined : true
             }
         }, { skipNull: true });
         router.push(url);
     }
 
-    const Icon = isVideo ? ServerCrash : Mic;
-    const toolTipLabel = isVideo ? "End Audio Call" : "Start Audio Call";
+    const Icon = isAudio ? MicOff : Mic;
+    const toolTipLabel = isAudio ? "End Audio Call" : "Start Audio Call";
 
     return (
         <ActionTooltip side="bottom" label={toolTipLabel}>
