@@ -4,6 +4,7 @@ import { Group } from 'lucide-react';
 import UserAvatar from '../user-avatar';
 import { SocketIndicator } from '../socket-indicator';
 import { ChatVideoButton } from './ChatVideoButton';
+import { ChatAudioButton } from './ChatAudioButton';
 
 interface ChatHeaderProps {
     serverId: string;
@@ -28,6 +29,9 @@ const ChatHeader = ({ serverId, name, type, imageUrl }: ChatHeaderProps) => {
             <div className='ml-auto flex items-center'>
                 {type === "conversation" && (
                     <ChatVideoButton />
+                )}
+                {type === "conversation" && (
+                    <ChatAudioButton />
                 )}
                 <SocketIndicator />
             </div>
