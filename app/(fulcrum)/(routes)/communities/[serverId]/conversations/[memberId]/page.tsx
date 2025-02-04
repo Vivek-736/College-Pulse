@@ -16,6 +16,7 @@ interface MemberIdPageProps {
     },
     searchParams: {
         video?: boolean;
+        audio?: boolean;
     }
 }
 
@@ -62,6 +63,13 @@ const MemberIdPage = async ({ params, searchParams }: MemberIdPageProps) => {
                 <MediaRoom
                     chatId={conversation.id}
                     video={true}
+                    audio={true}
+                />
+            )}
+            {searchParams.audio && (
+                <MediaRoom
+                    chatId={conversation.id}
+                    video={false}
                     audio={true}
                 />
             )}
