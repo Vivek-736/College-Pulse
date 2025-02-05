@@ -10,11 +10,11 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
         <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 flex items-center justify-center px-4 py-8">
             <div className="container mx-auto flex flex-col lg:flex-row items-center justify-center gap-12">
                 <div className="flex-1 max-w-2xl space-y-8 lg:ml-12">
-                    <div className="flex items-center gap-4 mb-12">
+                    <div className="flex flex-col items-center gap-4 mb-12">
                         <Image
                             src="/logo.png"
-                            width={80}
-                            height={80}
+                            width={150}
+                            height={150}
                             alt="Campus Connect"
                             className="rounded-lg shadow-lg mb-6"
                         />
