@@ -16,9 +16,9 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
                             width={80}
                             height={80}
                             alt="Campus Connect"
-                            className="rounded-lg shadow-lg"
+                            className="rounded-lg shadow-lg mb-6"
                         />
-                        <h1 className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-blue-500 bg-clip-text text-transparent">
+                        <h1 className="text-5xl pb-6 font-bold bg-gradient-to-r from-indigo-600 to-blue-500 bg-clip-text text-transparent">
                             College Pulse
                         </h1>
                     </div>
