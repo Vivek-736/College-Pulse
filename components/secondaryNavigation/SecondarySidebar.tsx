@@ -68,6 +68,8 @@ const SecondarySidebar = async ({ serverId }: SecondarySidebarProps) => {
     const courseChannel = community?.channels.filter((channel) => channel.segregation === ChannelSegregation.COURSE)
 
     const classChannel = community?.channels.filter((channel) => channel.segregation === ChannelSegregation.CLASS)
+    
+    const eventChannel = community?.channels.filter((channel) => channel.segregation === ChannelSegregation.EVENT)
 
     const otherChannel = community?.channels.filter((channel) => channel.segregation === ChannelSegregation.OTHER)
 
@@ -180,6 +182,21 @@ const SecondarySidebar = async ({ serverId }: SecondarySidebarProps) => {
                             <ChannelSection sectionType='channels' channelType={ChannelType.TEXT || ChannelType.AUDIO || ChannelType.VIDEO} channelSegregation={ChannelSegregation.COURSE} role={role} label='Course Channels' />
                             <div className='space-y-[2px]'>
                                 {courseChannel.map((channel) => (
+                                    <CommunityChannel
+                                        key={channel.id}
+                                        channel={channel}
+                                        role={role}
+                                        community={community}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                    )}
+                    {!!eventChannel?.length && (
+                        <div className='mb-2'>
+                            <ChannelSection sectionType='channels' channelType={ChannelType.TEXT || ChannelType.AUDIO || ChannelType.VIDEO} channelSegregation={ChannelSegregation.EVENT} role={role} label='Event Channels' />
+                            <div className='space-y-[2px]'>
+                                {eventChannel.map((channel) => (
                                     <CommunityChannel
                                         key={channel.id}
                                         channel={channel}

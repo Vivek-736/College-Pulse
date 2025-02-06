@@ -41,7 +41,7 @@ export const CreateChannelModal = () => {
         defaultValues: {
             name: "",
             type: ChannelType.TEXT,
-            segregation: ChannelSegregation.CLASS || ChannelSegregation.CLUB || ChannelSegregation.COURSE || ChannelSegregation.OTHER,
+            segregation: ChannelSegregation.CLASS || ChannelSegregation.CLUB || ChannelSegregation.COURSE || ChannelSegregation.OTHER || ChannelSegregation.EVENT,
         }
     });
 

@@ -87,6 +87,7 @@ enum ChannelSegregation {
   COURSE
   CLASS
   OTHER
+  EVENT
 }
 
 model Channel {
