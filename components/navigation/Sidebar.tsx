@@ -33,7 +33,7 @@ const Sidebar = async () => {
             <ScrollArea className='flex-1 w-full'>
                 {communities.map((community) => (
                     <div key={community.id} className='mb-4'>
-                        <NavigationItem id={community.id} name={community.name} imageUrl={community.imageUrl} />
+                        <NavigationItem id={community.id} name={community.name} imageUrl={community.imageUrl || "/community.png"} />
                     </div>
                 ))}
             </ScrollArea>
