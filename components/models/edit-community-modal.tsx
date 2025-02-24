@@ -17,7 +17,7 @@ const formSchema = z.object({
     name: z.string().min(1, {
         message: "Community name is required"
     }),
-    imageUrl: z.string().min(1, {
+    imageUrl: z.string().min(0, {
         message: "Community image is required"
     })
 })
@@ -41,7 +41,7 @@ export const EditCommunityModal = () => {
     useEffect(() => {
         if(community) {
             form.setValue("name", community.name)
-            form.setValue("imageUrl", community.imageUrl)
+            form.setValue("imageUrl", community.imageUrl ?? "")
         }
     }, [community, form]);
 
