@@ -8,7 +8,7 @@ import ChatItem from './ChatItem';
 import { format } from "date-fns";
 import { useChatSocket } from '@/hooks/use-chat-socket';
 import { useChatScroll } from '@/hooks/use-chat-scroll';
-import Loader from '@/app/loader';
+import Loader from '@/components/loader';
 
 const DATE_FORMAT = "d MMM yyyy, HH:mm"
 
